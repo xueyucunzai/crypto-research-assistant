@@ -1,1 +1,337 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crypto Research Assistant</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:system-ui,-apple-system,"Noto Sans SC",sans-serif;
+background:#0b1020;
+color:#eaf0ff;
+}
+
+header{
+padding:18px 20px;
+border-bottom:1px solid #26304a;
+background:#10172b;
+position:sticky;
+top:0;
+z-index:2;
+}
+
+h1{
+margin:0;
+font-size:22px;
+}
+
+.sub{
+color:#91a0bd;
+font-size:13px;
+margin-top:5px;
+}
+
+main{
+max-width:1050px;
+margin:auto;
+padding:18px;
+}
+
+.search{
+display:flex;
+gap:10px;
+}
+
+.search input{
+flex:1;
+padding:14px;
+border-radius:12px;
+border:1px solid #33405f;
+background:#151e35;
+color:#fff;
+font-size:16px;
+}
+
+.btn{
+border:0;
+border-radius:12px;
+padding:0 18px;
+background:#6d5dfc;
+color:white;
+font-weight:700;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:12px;
+margin-top:16px;
+}
+
+.card{
+background:#11192e;
+border:1px solid #263250;
+border-radius:15px;
+padding:16px;
+}
+
+.label{
+color:#91a0bd;
+font-size:13px;
+}
+
+.value{
+font-size:20px;
+font-weight:700;
+margin-top:7px;
+}
+
+.green{
+color:#54d68a;
+}
+
+.yellow{
+color:#ffd166;
+}
+
+h2{
+font-size:17px;
+margin:24px 0 10px;
+}
+
+.metric{
+display:flex;
+justify-content:space-between;
+padding:11px 0;
+border-bottom:1px solid #222c45;
+}
+
+.metric span:first-child{
+color:#9eabc4;
+}
+
+textarea{
+width:100%;
+min-height:120px;
+background:#11192e;
+color:#fff;
+border:1px solid #33405f;
+border-radius:12px;
+padding:12px;
+}
+
+.notice{
+margin-top:14px;
+padding:12px;
+border-radius:12px;
+background:#171f35;
+color:#aebbd3;
+font-size:13px;
+line-height:1.6;
+}
+
+footer{
+text-align:center;
+color:#65738f;
+font-size:12px;
+padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🔎 Crypto Research Assistant</h1>
+<div class="sub">
+基本面研究 · DeFiLlama 数据 · K线分析助手
+</div>
+</header>
+
+<main>
+
+<div class="search">
+<input
+id="coin"
+value="MON"
+placeholder="输入代币，例如 MON / BTC / MEGA">
+
+<button class="btn" onclick="searchCoin()">
+研究
+</button>
+</div>
+
+<div class="notice">
+这是 Crypto Research Assistant V1.1。
+当前页面是研究工具原型，不会伪造实时行情。
+后续可以接入 DeFiLlama 等公开数据源。
+</div>
+
+<h2>① 项目概览</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="label">Token / 代币</div>
+<div class="value" id="token">MON</div>
+</div>
+
+<div class="card">
+<div class="label">赛道 Track</div>
+<div class="value" id="track">Layer 1</div>
+</div>
+
+<div class="card">
+<div class="label">Market Cap / 市值</div>
+<div class="value">待接入实时数据</div>
+</div>
+
+<div class="card">
+<div class="label">FDV / 完全稀释估值</div>
+<div class="value">待接入实时数据</div>
+</div>
+
+</div>
+
+
+<h2>② DeFiLlama 核心指标</h2>
+
+<div class="card">
+
+<div class="metric">
+<span>TVL — 总锁仓价值</span>
+<b>待获取</b>
+</div>
+
+<div class="metric">
+<span>Fees — 手续费</span>
+<b>待获取</b>
+</div>
+
+<div class="metric">
+<span>Revenue — 协议收入</span>
+<b>待获取</b>
+</div>
+
+<div class="metric">
+<span>Volume — 交易量</span>
+<b>待获取</b>
+</div>
+
+<div class="metric">
+<span>Users — 用户</span>
+<b>待获取</b>
+</div>
+
+</div>
+
+
+<h2>③ 我应该怎么理解这个项目？</h2>
+
+<div class="card">
+
+<div class="metric">
+<span>真实使用</span>
+<b class="yellow">等待数据</b>
+</div>
+
+<div class="metric">
+<span>数据增长</span>
+<b class="yellow">等待数据</b>
+</div>
+
+<div class="metric">
+<span>代币价值捕获</span>
+<b class="yellow">等待分析</b>
+</div>
+
+<div class="metric">
+<span>主要风险</span>
+<b class="yellow">等待分析</b>
+</div>
+
+</div>
+
+
+<h2>④ K线分析</h2>
+
+<div class="card">
+
+<textarea
+placeholder="可以把K线截图上传给我，我会结合价格结构、成交量、突破、回踩等进行分析。">
+</textarea>
+
+<div class="notice">
+下一版本可以加入「上传K线截图 → 自动识别结构」功能。
+</div>
+
+</div>
+
+
+<h2>⑤ 研究笔记</h2>
+
+<div class="card">
+
+<textarea
+placeholder="写下你自己的理解……例如：我认为这个项目真正有价值的地方是……">
+</textarea>
+
+</div>
+
+</main>
+
+<footer>
+Crypto Research Assistant · V1.1
+</footer>
+
+
+<script>
+
+function searchCoin(){
+
+const v =
+(document.getElementById('coin').value || '')
+.trim()
+.toUpperCase();
+
+document.getElementById('token').textContent =
+v || '—';
+
+if(v === 'MON'){
+
+document.getElementById('track').textContent =
+'Layer 1';
+
+}
+
+else if(v === 'MEGA'){
+
+document.getElementById('track').textContent =
+'Layer 2';
+
+}
+
+else if(v === 'BTC'){
+
+document.getElementById('track').textContent =
+'Bitcoin';
+
+}
+
+else{
+
+document.getElementById('track').textContent =
+'待识别';
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
